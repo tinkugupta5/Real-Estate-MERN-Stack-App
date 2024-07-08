@@ -12,5 +12,3 @@ app.listen(8800,()=>{
     console.log("Server is running")
 })
 
-// 17:46
-// https://youtu.be/eJ3YysWaP_A?t=1066
