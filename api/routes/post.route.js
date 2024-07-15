@@ -4,10 +4,10 @@ import express from "express";
 const router = express.Router()
 
 router.get("/test",(req,res)=>{
-    console.log("response router works")
+    console.log("Response router works")
 })
 router.delete("/test",(req,res)=>{
-    console.log("response router works")
+    console.log("Response router works")
 })
 
 export default router;
