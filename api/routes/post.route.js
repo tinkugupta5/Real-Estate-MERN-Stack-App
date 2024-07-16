@@ -7,7 +7,7 @@ router.get("/test",(req,res)=>{
     console.log("Response router works")
 })
 router.delete("/test",(req,res)=>{
-    console.log("Response router works")
+    console.log("Response router workss")
 })
 
 export default router;
