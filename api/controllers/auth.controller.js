@@ -7,6 +7,9 @@ export const register = async(req,res) => {
    // HASH THE PASSWORD
    const hashedPassword = bcrypt.hash(password,10)
    console.log(hashedPassword);
+
+// Create a new user and save to DB
+const newUser
 }
 export const login = (req,res) => {
  // db operation
