@@ -9,7 +9,7 @@ export const register = async(req,res) => {
    console.log(hashedPassword);
 
 // Create a new user and save to DB
-const newUser
+const newUser = 
 }
 export const login = (req,res) => {
  // db operation
