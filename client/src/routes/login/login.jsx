@@ -7,7 +7,6 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     // Get form values
     const username = e.target.username.value;
     const email = e.target.email.value;
@@ -16,7 +15,6 @@ function Login() {
       setError("All fields are required");
       return;
     }
-
     try {
       const res = await axios.post("http://localhost:8800/api/auth/register", {
         username,
