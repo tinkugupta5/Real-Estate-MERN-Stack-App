@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function Login() {
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -36,9 +37,10 @@ function Login() {
       <div className="formContainer">
         <form onSubmit={handleSubmit}>
           <h1>Welcome back</h1>
-          <input name="username" required type="text" placeholder="Username" />
-          <input name="password" type="password" placeholder="Password" />
+          <input name="username" required minLength={3} maxLength={20} type="text" placeholder="Username" />
+          <input name="password" required type="password" placeholder="Password" />
           <button>Login</button>
+          {error && <span>{error}</span>}
           <Link to="/register">{"Don't"} you have an account?</Link>
         </form>
       </div>
