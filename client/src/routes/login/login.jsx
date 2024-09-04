@@ -1,3 +1,4 @@
+import apiRequest from "../../lib/apiRequest";
 import "./login.scss";
 import { Link } from "react-router-dom";
 
@@ -8,6 +9,8 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true)
+    setError("")
     // Get form values
     const username = e.target.username.value;
     const email = e.target.email.value;
@@ -17,9 +20,8 @@ function Login() {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:8800/api/auth/register", {
+      const res = await apiRequest.post("/auth/login", {
         username,
-        email,
         password,
       });
 
@@ -27,9 +29,10 @@ function Login() {
       navigate("/login");
     } catch (error) {
       console.log(error);
-
       // Fix typo in error message
       setError(error.response?.data?.message || "An error occurred");
+    } finally {
+      setIsLoading(false);
     }
   };
   return (

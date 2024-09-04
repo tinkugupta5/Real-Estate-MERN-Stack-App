@@ -5,10 +5,15 @@ import { useState } from "react";
 
 function Register() {
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true)
+    setError("")
+   
+    
 
     // Get form values
     const username = e.target.username.value;
@@ -46,7 +51,7 @@ function Register() {
           <input name="username" type="text" placeholder="Username" />
           <input name="email" type="text" placeholder="Email" />
           <input name="password" type="password" placeholder="Password" />
-          <button type="submit">Register</button>
+          <button disabled={isLoading} type="submit">Register</button>
           {error && <span>{error}</span>}
           <Link to="/login">Do you have an account?</Link>
         </form>
