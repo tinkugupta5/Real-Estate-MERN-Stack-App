@@ -25,7 +25,6 @@ export const register = async (req, res) => {
           res.status(500).json({
                message: 'Failed to created user!'
           })
-
      }
 }
 export const login = async (req, res) => {
