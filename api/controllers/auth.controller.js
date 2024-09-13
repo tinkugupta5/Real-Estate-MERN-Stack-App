@@ -30,7 +30,6 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
      const { username, password } = req.body;
      try {
-         
           const user = await prisma.user.findUnique({
                where: { username }
           })
@@ -67,7 +66,5 @@ export const login = async (req, res) => {
 export const logout = (req, res) => {
      res.clearCookie("token").status(200).json({ message: "Logout Successful" });
 };
-
-
 
 // https://youtu.be/eJ3YysWaP_A?t=4298
