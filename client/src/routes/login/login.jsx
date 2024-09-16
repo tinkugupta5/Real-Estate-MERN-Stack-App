@@ -11,7 +11,6 @@ function Login() {
     e.preventDefault();
     setIsLoading(true)
     setError("")
-    // Get form values
     const username = e.target.username.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
