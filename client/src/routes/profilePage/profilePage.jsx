@@ -10,9 +10,10 @@ function ProfilePage() {
   const handleLogout = () => {
     try {
       const res = apiRequest.post("/auth/logout")
+      localStorage.removeItem("user")
       navigate("/")
     } catch (error) {
-      
+      console.log(error)
     }
   }
 
