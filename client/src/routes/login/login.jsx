@@ -1,4 +1,6 @@
+import {useEffect, useState } from "react";
 import apiRequest from "../../lib/apiRequest";
+import { useNavigate } from 'react-router-dom';
 import "./login.scss";
 import { Link } from "react-router-dom";
 
@@ -12,9 +14,9 @@ function Login() {
     setIsLoading(true)
     setError("")
     const username = e.target.username.value;
-    const email = e.target.email.value;
+    // const email = e.target.email.value;
     const password = e.target.password.value;
-    if (!username || !email || !password) {
+    if (!username || !password) {
       setError("All fields are required");
       return;
     }
@@ -24,8 +26,8 @@ function Login() {
         password,
       });
 
-      // Redirect to login page on successful registration
-      navigate("/login");
+      localStorage.setItem("user",JSON.stringify(res.data))
+      navigate("/");
     } catch (error) {
       console.log(error);
       // Fix typo in error message
