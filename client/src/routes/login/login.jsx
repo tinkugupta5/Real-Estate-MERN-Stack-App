@@ -14,7 +14,6 @@ function Login() {
     setIsLoading(true)
     setError("")
     const username = e.target.username.value;
-    // const email = e.target.email.value;
     const password = e.target.password.value;
     if (!username || !password) {
       setError("All fields are required");
@@ -25,12 +24,10 @@ function Login() {
         username,
         password,
       });
-
       localStorage.setItem("user",JSON.stringify(res.data))
       navigate("/");
     } catch (error) {
       console.log(error);
-      // Fix typo in error message
       setError(error.response?.data?.message || "An error occurred");
     } finally {
       setIsLoading(false);
