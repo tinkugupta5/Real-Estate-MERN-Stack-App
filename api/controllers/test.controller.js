@@ -11,6 +11,8 @@ export const shouldBeLoggedIn = async (req, res) => {
         if(err) return res.status(401).json({message:"Not Authenticated!"})
     })
 
+    res.status(200).json({message:"You are Authenticated"});
+
 }
 export const shouldBeAdmin = async (req, res) => {
 
