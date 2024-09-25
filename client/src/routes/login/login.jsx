@@ -15,10 +15,12 @@ function Login() {
     setError("")
     const username = e.target.username.value;
     const password = e.target.password.value;
+    
     if (!username || !password) {
       setError("All fields are required");
       return;
     }
+
     try {
       const res = await apiRequest.post("/auth/login", {
         username,
