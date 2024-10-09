@@ -6,9 +6,9 @@ export const register = async (req, res) => {
 
      const { username, email, password } = req.body;
      try {
-          console.log("register working")
+          console.log("Register Working");
           const hashedPassword = await bcrypt.hash(password, 10);
-          console.log("hashpassword", hashedPassword);
+          console.log("Hashpassword", hashedPassword);
           const newUser = await prisma.user.create({
                data: {
                     username,
@@ -18,22 +18,20 @@ export const register = async (req, res) => {
           })
           console.log(newUser);
           res.status(201).json({
-               message: "User created successfully"
+               message: "User Created Successfully"
           })
      } catch (error) {
           console.log(error);
           res.status(500).json({
-               message: 'Failed to created user!'
+               message: 'Failed To Created User!'
           })
      }
 }
+
 export const login = async (req, res) => {
      const { username, password } = req.body;
      try {
-          const user = await prisma.user.findUnique({
-               where: { username }
-          })
-
+          const user = await prisma.user.findUnique({  where: { username }  })
           if (!user) return res.status(401).json({
                message: "Invalid Credentials!"
           })
@@ -50,20 +48,21 @@ export const login = async (req, res) => {
                process.env.JWT_SECRET_KEY,
                { expiresIn: age }
           );
-          const { password: userPassword, ...userInfo } = user;
-          res.cookie("token", token, {
+          const { password: userPassword, ...userInfo} = user;
+          res.cookie("Token", token, {
                httpOnly: true,
                maxAge: age,
           }).status(200).json(userInfo);
      } catch (error) {
           console.log(error)
           res.status(500).json({
-               message: "Failed to login"
+               message: "Failed To Login"
           })
      }
 }
+
 export const logout = (req, res) => {
-     res.clearCookie("token").status(200).json({ message: "Logout Successful" });
+     res.clearCookie("Token").status(200).json({ message: "Logout Successfull" });
 };
 
 
