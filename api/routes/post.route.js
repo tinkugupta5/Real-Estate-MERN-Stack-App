@@ -3,12 +3,12 @@ import express from "express";
 
 const router = express.Router()
 
-router.get("/test",(req,res)=>{
-    console.log("Response Router Works")
+router.get("/test-get-data",(req,res)=>{   
+    console.log("Response Router Works");
 })
 
-router.delete("/test",(req,res)=>{
-    console.log("Response Router Works")
+router.delete("/test-delete-data",(req,res)=>{
+    console.log("Response Router Works");
 })
 
 export default router;

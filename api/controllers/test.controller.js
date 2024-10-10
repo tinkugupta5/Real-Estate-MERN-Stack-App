@@ -4,7 +4,7 @@ export const shouldBeLoggedIn = async (req, res) => {
     const token = req.cookies.token
 
     if (!token) return res.status(401).json({
-        message: 'not Authenticated'
+        message: 'Not Authenticated'
     })
 
     jwt.verify(token,process.env.JWT_SECRET_KEY,async (err,payload)=>{
@@ -17,12 +17,12 @@ export const shouldBeLoggedIn = async (req, res) => {
     res.status(200).json({message:"You are Authenticated"});
 
 }
+
 export const shouldBeAdmin = async (req, res) => {
 
     const token = req.cookies.token
-
     if (!token) return res.status(401).json({
-        message: 'not Authenticated'
+        message: 'Not Authenticated'
     })
 
     jwt.verify(token,process.env.JWT_SECRET_KEY,async (err,payload)=>{
@@ -33,6 +33,4 @@ export const shouldBeAdmin = async (req, res) => {
         })
 
     res.status(200).json({message:"You are Authenticated"});
-    
-
 }
