@@ -12,33 +12,22 @@ function Register() {
     e.preventDefault();
     setIsLoading(true)
     setError("")
-   
-    
-
-    // Get form values
     const username = e.target.username.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-
-    // Basic validation
     if (!username || !email || !password) {
-      setError("All fields are required");
+      setError("all fields are required");
       return;
     }
-
     try {
       const res = await axios.post("http://localhost:8800/api/auth/register", {
         username,
         email,
         password,
       });
-
-      // Redirect to login page on successful registration
       navigate("/login");
     } catch (error) {
       console.log(error);
-
-      // Fix typo in error message
       setError(error.response?.data?.message || "An error occurred");
     }
   };
