@@ -16,7 +16,7 @@ function Register() {
     const email = e.target.email.value;
     const password = e.target.password.value;
     if (!username || !email || !password) {
-      setError("all fields are required");
+      setError("All fields are required");
       return;
     }
     try {
