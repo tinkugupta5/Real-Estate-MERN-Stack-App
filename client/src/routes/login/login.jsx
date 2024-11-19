@@ -30,7 +30,7 @@ function Login() {
       navigate("/");
     } catch (error) {
       console.log(error);
-      setError(error.response?.data?.message || "An error occurred");
+      setError(error.response?.data?.message || "An Error Occurred");
     } finally {
       setIsLoading(false);
     }
