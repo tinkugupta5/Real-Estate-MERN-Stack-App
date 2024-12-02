@@ -17,7 +17,7 @@ function Login() {
     const password = e.target.password.value;
     
     if (!username || !password) {
-      setError("All Fields Are Required");
+      setError("All fields are required");
       return;
     }
 
